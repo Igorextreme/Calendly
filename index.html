@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendly Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 580px;
+        }
+        .events {
+            margin-top: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .event {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="calendly-widget" class="calendly-inline-widget"></div>
+
+   
+
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+    <script>
+        // Inicializa o widget do Calendly
+        Calendly.initInlineWidget({
+            url: 'https://calendly.com/francisco-igor898989/cacada-pokemon', // Substitua pelo seu link do Calendly
+            parentElement: document.getElementById('calendly-widget'),
+            prefill: {},
+            utm: {}
+        });
+
+
+    </script>
+
+</body>
+</html>
