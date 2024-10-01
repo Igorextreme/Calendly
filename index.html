@@ -3,70 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendly Widget - Pokémon</title>
+    <title>Caçada Pokémon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('https://www.pngmart.com/files/11/Pokemon-Grass-Background-PNG-Transparent-Image.png');
+            background-size: cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #f0f0f0 30%, #e0e0ff 100%);
+            font-family: 'Press Start 2P', cursive;
             color: #333;
-            text-align: center;
+            margin: 0;
         }
-        h1 {
-            font-size: 2.5em;
-            color: #ff4757; /* Cor inspirada em Pokémon */
+
+        .event-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 5px solid #ffcb05;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .event-header {
             margin-bottom: 20px;
         }
-        .calendly-inline-widget {
-            min-width: 320px;
-            height: 580px;
-            border: 2px solid #ff4757; /* Borda inspirada em Pokémon */
-            border-radius: 10px;
-            overflow: hidden;
+
+        .event-name {
+            font-size: 1.5em;
+            color: #ff0000;
+            text-shadow: 1px 1px 2px #000;
         }
-        .events {
+
+        .event-title {
+            font-size: 1.2em;
+            color: #0075be;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-between;
             margin-top: 20px;
-            max-width: 600px;
-            width: 100%;
         }
-        .event {
-            border: 1px solid #ddd;
+
+        .event-duration, .event-location {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .event-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .event-footer {
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px #000;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px #d32f2f;
+        }
+
+        .cta-button:hover {
+            background-color: #cc0000;
+        }
+
+        .pixel-border {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 10px solid black;
+            background: url('https://www.pngmart.com/files/11/Pokeball-PNG-Transparent-Image.png');
+            background-size: 40px;
+            background-repeat: repeat;
+            z-index: -1;
+        }
+
+        .poke-text {
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .pixel-art {
+            background-color: #d9d9d9;
+            border: 2px solid #000;
             padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência */
+            margin-top: 20px;
+            box-shadow: 4px 4px 0 #000;
         }
-        /* Responsividade */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .calendly-inline-widget {
-                height: 450px; /* Ajustar a altura para dispositivos menores */
-            }
-        }
+
     </style>
 </head>
 <body>
+    <div class="event-container">
+        <div class="pixel-border"></div>
+        
+        <div class="event-header">
+            <div class="event-name">Prepare-se Treinador</div>
+            <h1 class="event-title">Caçada Pokémon</h1>
+        </div>
 
-    <h1>Agende sua Caçada Pokémon!</h1>
-    <div id="calendly-widget" class="calendly-inline-widget"></div>
+        <div class="event-details">
+            <div class="event-duration">
+                <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="Pokébola" class="event-icon">
+                30 min
+            </div>
+            <div class="event-location">
+                <img src="https://cdn-icons-png.flaticon.com/512/831/831623.png" alt="Mapa" class="event-icon">
+                Caçada em Kanto
+            </div>
+        </div>
 
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-    <script>
-        // Inicializa o widget do Calendly
-        Calendly.initInlineWidget({
-            url: 'https://calendly.com/francisco-igor898989/cacada-pokemon', // Substitua pelo seu link do Calendly
-            parentElement: document.getElementById('calendly-widget'),
-            prefill: {},
-            utm: {}
-        });
-    </script>
+        <div class="poke-text">
+            "Prepare suas Pokébolas, a jornada começa agora!"
+        </div>
 
+        <div class="event-footer">
+            <button class="cta-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/francisco-igor898989/cacada-pokemon'}); return false;">
+                Participar
+            </button>
+        </div>
+
+        <div class="pixel-art">
+            <p>"Você está prestes a entrar em uma batalha épica de Pokémon! Capture-os todos!"</p>
+        </div>
+    </div>
+
+    <script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
 </body>
 </html>
